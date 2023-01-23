@@ -6,17 +6,17 @@ instructions : instruction+;
 instruction : (definition | control | expression | play) ';'?;
 
 control : 'for' '(' expression ';' condition ';' expression ')' body
-| 'while' '(' condition ')' body
-| justIf;
+        | 'while' '(' condition ')' body
+        | if;
 
 definition : mutability name ':' type '=' expression;
 
 mutability: 'val' | 'var';
 
-justIf : 'if' '(' condition ')' body
-| 'if' '(' condition ')' body 'else' body;
+if : 'if' '(' condition ')' body
+   | 'if' '(' condition ')' body 'else' body;
 
-block :  '{' instructions '}' ;
+block :  '{' instructions? '}' ;
 
 body : block | instruction;
 
@@ -26,7 +26,9 @@ operator: '=' | OP ;
 
 function : name '(' arguments ')';
 
-literal : NUMBER | lambda;
+literal : NUMBER | lambda | boolLiteral;
+
+boolLiteral : 'true' | 'false';
 
 lambda : name '->' (expression | block);
 
@@ -46,14 +48,13 @@ name : ID;
 
 type : ID;
 
-condition : EXPRESSION;
+condition : expression;
 
 
 
 NUMBER : [0-9]+;
 ID : [a-zA-Z.]+;
 OP : [-+/*^<>=][=]? ;
-EXPRESSION : [a-zA-Z0-9]+;
 WS: [ \t\r\n]+ -> skip;
 ANYTHING: .+?;
 LINE_COMMENT
