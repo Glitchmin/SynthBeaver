@@ -16,7 +16,9 @@ mutability: 'val' | 'var';
 justIf : 'if' '(' condition ')' body
 | 'if' '(' condition ')' body 'else' body;
 
-body : '{' instructions '}' | instruction;
+block :  '{' instructions '}' ;
+
+body : block | instruction;
 
 expression : function | expression operator expression | name | literal;
 
@@ -26,7 +28,7 @@ function : name '(' arguments ')';
 
 literal : NUMBER | lambda;
 
-lambda : name '->' body;
+lambda : name '->' (expression | block);
 
 arguments : argument (',' argument)*;
 
@@ -56,6 +58,10 @@ WS: [ \t\r\n]+ -> skip;
 ANYTHING: .+?;
 LINE_COMMENT
    :   '//' (~[\r\n])* -> skip
+   ;
+
+Semi
+   : (';' | ([\r\n])+) -> skip
    ;
 COMMENT
   :   '/*' (COMMENT | .)* '*/' -> skip

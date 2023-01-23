@@ -1,3 +1,11 @@
+val freqs: Unarf = t -> { t^2; }
+
+val freqs: Unarf = t -> t^2
+
+if ( a == b ) {
+  b = b
+}
+
 val baseFreq: Double  = 440;
 val interval: Double = 69
 var amplitude: Double = 127
