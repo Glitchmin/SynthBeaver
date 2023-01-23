@@ -48,4 +48,18 @@ public class Listener extends SynthBeaverBaseListener {
             e.printStackTrace();
         }
     }
+    @Override
+    public void exitInstruction(SynthBeaverParser.InstructionContext ctx) {
+        if (ctx.definition()==null &&ctx.expression()!=null && ctx.expression().operator()!=null){
+            System.out.println(">"+ctx.getText());
+        }
+    }
+    @Override
+    public void exitPlay(SynthBeaverParser.PlayContext ctx) {
+        try {
+            fileWriter.write("play ("+ctx.arguments().getText()+");");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

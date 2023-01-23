@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class World {
+
     public static void main(String[] args) {
         // Input to be parsed
         String fileContent = "";
