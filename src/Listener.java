@@ -6,5 +6,6 @@ public class Listener extends SynthBeaverBaseListener {
     @Override
     public void exitDefinition(SynthBeaverParser.DefinitionContext ctx){
         super.exitDefinition(ctx);
+        System.out.println("exit definition");
     }
 }
