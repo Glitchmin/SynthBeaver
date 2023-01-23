@@ -18,7 +18,9 @@ justIf : 'if' '(' condition ')' body
 
 body : '{' instructions '}' | instruction;
 
-expression : function | expression OP expression | name | literal;
+expression : function | expression operator expression | name | literal;
+
+operator: '=' | OP ;
 
 function : name '(' arguments ')';
 
@@ -48,7 +50,7 @@ condition : EXPRESSION;
 
 NUMBER : [0-9]+;
 ID : [a-zA-Z.]+;
-OP : [-+/*^=<>][=]? ;
+OP : [-+/*^<>=][=]? ;
 EXPRESSION : [a-zA-Z0-9]+;
 WS: [ \t\r\n]+ -> skip;
 ANYTHING: .+?;
