@@ -5,14 +5,14 @@ var amplitude: Double = 127
 def kot(jesz: Double, szop: Int) -> Int {
  9
 }
-
+//comment
 val shape: Unarf  = x -> Math.sin(x)
 
 val freqs: Unarf = t -> t^2
 
-val baseFreqs = x -> baseFreq
+val baseFreqs: Unarf = x -> baseFreq
 
-var freqFun: Unarf = baseFreqs + time -> 2000 + 2000 * Math.sin(time^2 * Math.PI * 2 )
+var freqFun: Unarf = baseFreqs + time -> 2000 + 2000 * Math.sin(time^2 * Math.PI * 2 ) //yj
 freqFun *= 6
 freqFun =  freqFun / 7 + 3
 

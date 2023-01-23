@@ -1,11 +1,9 @@
 grammar SynthBeaver;
 start : instructions EOF;
 
-instructions : instruction instructions?;
+instructions : instruction+;
 
-instruction : ((definition | control | expression | play)? (';' | '\r'? '\n')) | comment;
-
-comment: '/*' ANYTHING '*/' ;
+instruction : (definition | control | expression | play) ';'?;
 
 control : 'for' '(' expression ';' condition ';' expression ')' body
 | 'while' '(' condition ')' body
@@ -52,6 +50,13 @@ NUMBER : [0-9]+;
 ID : [a-zA-Z.]+;
 OP : [-+/*^=<>][=]? ;
 EXPRESSION : [a-zA-Z0-9]+;
-WS: [ \t]+ -> skip;
+WS: [ \t\r\n]+ -> skip;
 ANYTHING: .+?;
+LINE_COMMENT
+   :   '//' (~[\r\n])* -> skip
+   ;
+
+COMMENT
+  :   '/*' (COMMENT | .)* '*/' -> skip
+  ;
 //GARBAGE: ~[\r\n]+;
