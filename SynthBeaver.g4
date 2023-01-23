@@ -57,6 +57,10 @@ ANYTHING: .+?;
 LINE_COMMENT
    :   '//' (~[\r\n])* -> skip
    ;
+
+Semi
+   : (';' | ([\r\n])+) -> skip
+   ;
 COMMENT
   :   '/*' (COMMENT | .)* '*/' -> skip
   ;
