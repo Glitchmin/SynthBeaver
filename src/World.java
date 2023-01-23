@@ -2,7 +2,6 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -15,13 +14,13 @@ public class World {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(fileContent + "<-");
+        //System.out.println(fileContent + "<-");
 
         // Create an instance of the lexer and parser
         SynthBeaverLexer lexer = new SynthBeaverLexer(CharStreams.fromString(fileContent));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         SynthBeaverParser parser = new SynthBeaverParser(tokens);
-        ParseTree tree = parser.definition();
+        ParseTree tree = parser.start();
         ParseTreeWalker walker = new ParseTreeWalker();
         SynthBeaverListener listener= new Listener();
         walker.walk(listener, tree);

@@ -57,6 +57,16 @@ public interface SynthBeaverListener extends ParseTreeListener {
 	 */
 	void exitDefinition(SynthBeaverParser.DefinitionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link SynthBeaverParser#mutability}.
+	 * @param ctx the parse tree
+	 */
+	void enterMutability(SynthBeaverParser.MutabilityContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SynthBeaverParser#mutability}.
+	 * @param ctx the parse tree
+	 */
+	void exitMutability(SynthBeaverParser.MutabilityContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SynthBeaverParser#justIf}.
 	 * @param ctx the parse tree
 	 */
@@ -86,6 +96,16 @@ public interface SynthBeaverListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpression(SynthBeaverParser.ExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SynthBeaverParser#operator}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperator(SynthBeaverParser.OperatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SynthBeaverParser#operator}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperator(SynthBeaverParser.OperatorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SynthBeaverParser#function}.
 	 * @param ctx the parse tree

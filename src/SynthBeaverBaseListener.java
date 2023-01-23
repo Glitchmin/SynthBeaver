@@ -76,6 +76,18 @@ public class SynthBeaverBaseListener implements SynthBeaverListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterMutability(SynthBeaverParser.MutabilityContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMutability(SynthBeaverParser.MutabilityContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterJustIf(SynthBeaverParser.JustIfContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -107,6 +119,18 @@ public class SynthBeaverBaseListener implements SynthBeaverListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitExpression(SynthBeaverParser.ExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOperator(SynthBeaverParser.OperatorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOperator(SynthBeaverParser.OperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

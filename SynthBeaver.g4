@@ -57,7 +57,6 @@ ANYTHING: .+?;
 LINE_COMMENT
    :   '//' (~[\r\n])* -> skip
    ;
-
 COMMENT
   :   '/*' (COMMENT | .)* '*/' -> skip
   ;

@@ -2,9 +2,7 @@ val baseFreq: Double  = 440
 val interval: Double = 69
 var amplitude: Double = 127
 
-def kot(jesz: Double, szop: Int) -> Int {
- 9
-}
+
 //comment
 val shape: Unarf  = x -> Math.sin(x)
 
@@ -20,5 +18,5 @@ freqFun =  freqFun / 7 + 3
  shape,
  freqFun,
  127,
- 2137,
+ 2137
 !!!

@@ -40,6 +40,12 @@ public interface SynthBeaverVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDefinition(SynthBeaverParser.DefinitionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SynthBeaverParser#mutability}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMutability(SynthBeaverParser.MutabilityContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SynthBeaverParser#justIf}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -57,6 +63,12 @@ public interface SynthBeaverVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitExpression(SynthBeaverParser.ExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SynthBeaverParser#operator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperator(SynthBeaverParser.OperatorContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SynthBeaverParser#function}.
 	 * @param ctx the parse tree
