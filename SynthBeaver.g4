@@ -13,7 +13,7 @@ control : for | while | if;
 
 while : 'while' '(' condition ')' body ;
 
-for   : 'for' '(' init=expression ';' condition ';' looping=expression ')' body ;
+for   : 'for' '(' init=instruction? condition ';' looping=expression ')' body ;
 
 if : 'if' '(' condition ')' body ('else' elseBody=body)?;
 

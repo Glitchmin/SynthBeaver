@@ -1,3 +1,7 @@
+for (var i: int = 0; i < 5; i += 1) {
+  poCoKOmuPostfixOperatory
+}
+
 soo true
 
 while ( b == b ) {  }
@@ -11,6 +15,7 @@ val freqs: Unarf = t -> t^2
 if ( a == b ) {
   b = b
 }
+
 
 
 val baseFreq: Double  = 440;
