@@ -2,6 +2,10 @@ for (var i: int = 0; i < 5; i += 1) {
   poCoKOmuPostfixOperatory
 }
 
+Math.sin(Math.PI)
+
+Math.min(buba, 123);
+
 soo true
 
 while ( b == b ) {  }
