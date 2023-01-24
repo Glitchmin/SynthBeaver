@@ -21,8 +21,9 @@ public class Visitor extends SynthBeaverBaseVisitor <String> {
     }
 
 
-    @Override public String visitInstruction(SynthBeaverParser.InstructionContext ctx){
-        super.visitInstruction(ctx);
+    @Override
+    public String visitStatement(SynthBeaverParser.StatementContext ctx) {
+        super.visitStatement(ctx);
         writeToFile(";\n");
         return "";
     }
@@ -84,7 +85,7 @@ public class Visitor extends SynthBeaverBaseVisitor <String> {
     public String visitFor(SynthBeaverParser.ForContext ctx) {
         writeToFile("for (");
         if(ctx.init != null){
-            visitInstruction(ctx.init);
+            visitNoSemiStatement(ctx.init);
         } else {
             writeToFile(";");
         }
@@ -96,7 +97,20 @@ public class Visitor extends SynthBeaverBaseVisitor <String> {
         return "";
     }
 
-//    @Override
+    @Override
+    public String visitIf(SynthBeaverParser.IfContext ctx) {
+        writeToFile("if ( ");
+        visitCondition(ctx.condition());
+        writeToFile(" ) ");
+        visitBody(ctx.ifBody);
+        if(ctx.elseBody != null) {
+            writeToFile(" else ");
+            visitBody(ctx.elseBody);
+        }
+        return "";
+    }
+
+    //    @Override
 //    public String visitExpression(SynthBeaverParser.ExpressionContext ctx) {
 //        return super.visitExpression(ctx);
 //    }
@@ -107,6 +121,18 @@ public class Visitor extends SynthBeaverBaseVisitor <String> {
         writeToFile(" ( ");
         visitArguments(ctx.arguments());
         writeToFile(" ) ");
+        return "";
+    }
+
+    @Override
+    public String visitLambda(SynthBeaverParser.LambdaContext ctx) {
+        visitName(ctx.name());
+        writeToFile(" -> ");
+        if(ctx.expression() != null) {
+            visitExpression(ctx.expression());
+        } else {
+            visitBlock(ctx.block());
+        }
         return "";
     }
 

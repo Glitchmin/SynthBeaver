@@ -20,7 +20,7 @@ if ( a == b ) {
   b = b
 }
 
-def f1(var: int){
+def f1(var wara: int) -> void {
     val baseFreq: Double  = 440;
 }
 

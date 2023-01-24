@@ -38,6 +38,20 @@ public class SynthBeaverBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitStatement(SynthBeaverParser.StatementContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitNoSemiStatement(SynthBeaverParser.NoSemiStatementContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitDefinition(SynthBeaverParser.DefinitionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

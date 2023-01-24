@@ -52,6 +52,30 @@ public class SynthBeaverBaseListener implements SynthBeaverListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterStatement(SynthBeaverParser.StatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStatement(SynthBeaverParser.StatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNoSemiStatement(SynthBeaverParser.NoSemiStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNoSemiStatement(SynthBeaverParser.NoSemiStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterDefinition(SynthBeaverParser.DefinitionContext ctx) { }
 	/**
 	 * {@inheritDoc}

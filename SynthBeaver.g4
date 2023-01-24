@@ -3,7 +3,11 @@ start : instructions EOF;
 
 instructions : instruction+;
 
-instruction : (definition | control | expression | play) ';'?;
+instruction : statement | functionDef ;
+
+statement : noSemiStatement ';'?;
+
+noSemiStatement : definition | control | expression | play ;
 
 definition : mutability name ':' type '=' expression;
 
@@ -13,9 +17,9 @@ control : for | while | if;
 
 while : 'while' '(' condition ')' body ;
 
-for   : 'for' '(' init=instruction? condition ';' looping=expression ')' body ;
+for   : 'for' '(' init=noSemiStatement? ';' condition ';' looping=expression ')' body ;
 
-if : 'if' '(' condition ')' body ('else' elseBody=body)?; //todo
+if : 'if' '(' condition ')' ifBody=body ('else' elseBody=body)?;
 
 block :  '{' instructions? '}' ;
 
@@ -31,7 +35,6 @@ literal : number | lambda | boolLiteral;
 
 boolLiteral : 'true' | 'false';
 
-//todo
 lambda : name '->' (expression | block);
 
 arguments : expression (',' expression)*;
@@ -39,14 +42,11 @@ arguments : expression (',' expression)*;
 //todo
 play : '!!!' arguments '!!!';
 
-//todo
 functionDef : 'def' name '(' argumentsDef ')' '->' type body;
 
-//todo
 argumentsDef : argumentDef (',' argumentDef)*;
 
-//todo
-argumentDef : name ':' type;
+argumentDef : mutability name ':' type;
 
 name : ID;
 
@@ -57,11 +57,10 @@ number: NUMBER ;
 condition : expression;
 
 
-NUMBER : [0-9]+;
-ID : [a-zA-Z.]+;
+NUMBER : [0-9]+'.'?[0-9]*;
+ID : [a-zA-Z][a-zA-Z.0-9_]*;
 OP : [-+/*^<>=][=]? ;
 WS: [ \t\r\n]+ -> skip;
-ANYTHING: .+?;
 Semi
    : (';' | ([\r\n])+) -> skip
    ;

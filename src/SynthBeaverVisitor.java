@@ -28,6 +28,18 @@ public interface SynthBeaverVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitInstruction(SynthBeaverParser.InstructionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SynthBeaverParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatement(SynthBeaverParser.StatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SynthBeaverParser#noSemiStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNoSemiStatement(SynthBeaverParser.NoSemiStatementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SynthBeaverParser#definition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
