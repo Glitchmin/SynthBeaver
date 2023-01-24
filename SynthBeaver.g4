@@ -9,22 +9,19 @@ definition : mutability name ':' type '=' expression;
 
 mutability: 'val' | 'var';
 
-control : for
-        | while
-        | if;
+control : for | while | if;
 
 while : 'while' '(' condition ')' body ;
 
-for   : 'for' '(' expression ';' condition ';' expression ')' body ;
+for   : 'for' '(' init=expression ';' condition ';' looping=expression ')' body ;
 
-if : 'if' '(' condition ')' body
-   | 'if' '(' condition ')' body 'else' body;
+if : 'if' '(' condition ')' body ('else' elseBody=body)?;
 
 block :  '{' instructions? '}' ;
 
 body : block | instruction;
 
-expression : function | expression operator expression | name | literal;
+expression : function | lhs=expression operator rhs=expression | name | literal;
 
 operator: '=' | OP ;
 
@@ -36,9 +33,7 @@ boolLiteral : 'true' | 'false';
 
 lambda : name '->' (expression | block);
 
-arguments : argument (',' argument)*;
-
-argument : expression;
+arguments : expression (',' expression)*;
 
 play : '!!!' arguments '!!!';
 
@@ -55,20 +50,17 @@ type : ID;
 condition : expression;
 
 
-
 NUMBER : [0-9]+;
 ID : [a-zA-Z.]+;
 OP : [-+/*^<>=][=]? ;
 WS: [ \t\r\n]+ -> skip;
 ANYTHING: .+?;
-LINE_COMMENT
-   :   '//' (~[\r\n])* -> skip
-   ;
-
 Semi
    : (';' | ([\r\n])+) -> skip
+   ;
+LINE_COMMENT
+   :   '//' (~[\r\n])* -> skip
    ;
 COMMENT
   :   '/*' (COMMENT | .)* '*/' -> skip
   ;
-//GARBAGE: ~[\r\n]+;
