@@ -52,18 +52,6 @@ public class SynthBeaverBaseListener implements SynthBeaverListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterControl(SynthBeaverParser.ControlContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitControl(SynthBeaverParser.ControlContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterDefinition(SynthBeaverParser.DefinitionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -83,6 +71,42 @@ public class SynthBeaverBaseListener implements SynthBeaverListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMutability(SynthBeaverParser.MutabilityContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterControl(SynthBeaverParser.ControlContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitControl(SynthBeaverParser.ControlContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWhile(SynthBeaverParser.WhileContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWhile(SynthBeaverParser.WhileContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFor(SynthBeaverParser.ForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFor(SynthBeaverParser.ForContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

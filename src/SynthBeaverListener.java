@@ -37,16 +37,6 @@ public interface SynthBeaverListener extends ParseTreeListener {
 	 */
 	void exitInstruction(SynthBeaverParser.InstructionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SynthBeaverParser#control}.
-	 * @param ctx the parse tree
-	 */
-	void enterControl(SynthBeaverParser.ControlContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SynthBeaverParser#control}.
-	 * @param ctx the parse tree
-	 */
-	void exitControl(SynthBeaverParser.ControlContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link SynthBeaverParser#definition}.
 	 * @param ctx the parse tree
 	 */
@@ -66,6 +56,36 @@ public interface SynthBeaverListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMutability(SynthBeaverParser.MutabilityContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SynthBeaverParser#control}.
+	 * @param ctx the parse tree
+	 */
+	void enterControl(SynthBeaverParser.ControlContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SynthBeaverParser#control}.
+	 * @param ctx the parse tree
+	 */
+	void exitControl(SynthBeaverParser.ControlContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SynthBeaverParser#while}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhile(SynthBeaverParser.WhileContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SynthBeaverParser#while}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhile(SynthBeaverParser.WhileContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SynthBeaverParser#for}.
+	 * @param ctx the parse tree
+	 */
+	void enterFor(SynthBeaverParser.ForContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SynthBeaverParser#for}.
+	 * @param ctx the parse tree
+	 */
+	void exitFor(SynthBeaverParser.ForContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SynthBeaverParser#if}.
 	 * @param ctx the parse tree

@@ -28,12 +28,6 @@ public interface SynthBeaverVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitInstruction(SynthBeaverParser.InstructionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SynthBeaverParser#control}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitControl(SynthBeaverParser.ControlContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link SynthBeaverParser#definition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -45,6 +39,24 @@ public interface SynthBeaverVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMutability(SynthBeaverParser.MutabilityContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SynthBeaverParser#control}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitControl(SynthBeaverParser.ControlContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SynthBeaverParser#while}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhile(SynthBeaverParser.WhileContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SynthBeaverParser#for}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFor(SynthBeaverParser.ForContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SynthBeaverParser#if}.
 	 * @param ctx the parse tree

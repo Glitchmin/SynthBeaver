@@ -5,13 +5,17 @@ instructions : instruction+;
 
 instruction : (definition | control | expression | play) ';'?;
 
-control : 'for' '(' expression ';' condition ';' expression ')' body
-        | 'while' '(' condition ')' body
-        | if;
-
 definition : mutability name ':' type '=' expression;
 
 mutability: 'val' | 'var';
+
+control : for
+        | while
+        | if;
+
+while : 'while' '(' condition ')' body ;
+
+for   : 'for' '(' expression ';' condition ';' expression ')' body ;
 
 if : 'if' '(' condition ')' body
    | 'if' '(' condition ')' body 'else' body;
