@@ -19,9 +19,10 @@ public class Visitor extends SynthBeaverBaseVisitor <String> {
             e.printStackTrace();
         }
     }
+
+
     @Override public String visitInstruction(SynthBeaverParser.InstructionContext ctx){
         super.visitInstruction(ctx);
-        System.out.println("hej instruction" + (ctx.expression()==null));
         if (ctx.expression()==null){
             writeToFile(";\n");
         }
@@ -30,17 +31,36 @@ public class Visitor extends SynthBeaverBaseVisitor <String> {
 
     @Override
     public String visitMutability(SynthBeaverParser.MutabilityContext ctx) {
-        //System.out.println("hej mut" + ctx.getText() + " " + ctx.getText().equals("val"));
+        System.out.println("hej mut");
         if (ctx.getText().equals("val")) {
-            writeToFile("final");
+            writeToFile("final ");
         }
-        return "test";
+        return "";
+    }
+    @Override
+    public String visitType(SynthBeaverParser.TypeContext ctx) {
+        if (ctx.getText().equals("Unarf")) {
+            writeToFile("Function <Double, Double> ");
+        } else {
+            writeToFile(ctx.getText() + " ");
+        }
+        return "";
+    }
+
+    @Override
+    public String visitName(SynthBeaverParser.NameContext ctx) {
+        writeToFile(ctx.getText());
+        return "";
     }
 
     @Override
     public String visitDefinition(SynthBeaverParser.DefinitionContext ctx) {
-        //System.out.println("hej def");
+        System.out.println("hej def");
         visitMutability(ctx.mutability());
+        visitType(ctx.type());
+        visitName(ctx.name());
+        writeToFile("=");
+        visitExpression(ctx.expression());
         return "test";
     }
 
