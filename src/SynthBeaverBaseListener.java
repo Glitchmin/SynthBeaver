@@ -88,13 +88,25 @@ public class SynthBeaverBaseListener implements SynthBeaverListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterJustIf(SynthBeaverParser.JustIfContext ctx) { }
+	@Override public void enterIf(SynthBeaverParser.IfContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitJustIf(SynthBeaverParser.JustIfContext ctx) { }
+	@Override public void exitIf(SynthBeaverParser.IfContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBlock(SynthBeaverParser.BlockContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBlock(SynthBeaverParser.BlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -155,6 +167,18 @@ public class SynthBeaverBaseListener implements SynthBeaverListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitLiteral(SynthBeaverParser.LiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBoolLiteral(SynthBeaverParser.BoolLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoolLiteral(SynthBeaverParser.BoolLiteralContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

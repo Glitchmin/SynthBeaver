@@ -51,7 +51,7 @@ public class Listener extends SynthBeaverBaseListener {
     @Override
     public void exitInstruction(SynthBeaverParser.InstructionContext ctx) {
         if (ctx.definition()==null &&ctx.expression()!=null && ctx.expression().operator()!=null){
-            System.out.println(">"+ctx.getText());
+            System.out.println("<>"+ctx.getText());
         }
     }
     @Override

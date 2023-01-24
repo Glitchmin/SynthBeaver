@@ -46,11 +46,17 @@ public interface SynthBeaverVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMutability(SynthBeaverParser.MutabilityContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SynthBeaverParser#justIf}.
+	 * Visit a parse tree produced by {@link SynthBeaverParser#if}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitJustIf(SynthBeaverParser.JustIfContext ctx);
+	T visitIf(SynthBeaverParser.IfContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SynthBeaverParser#block}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlock(SynthBeaverParser.BlockContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SynthBeaverParser#body}.
 	 * @param ctx the parse tree
@@ -81,6 +87,12 @@ public interface SynthBeaverVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLiteral(SynthBeaverParser.LiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SynthBeaverParser#boolLiteral}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolLiteral(SynthBeaverParser.BoolLiteralContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SynthBeaverParser#lambda}.
 	 * @param ctx the parse tree

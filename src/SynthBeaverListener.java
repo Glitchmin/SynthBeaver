@@ -67,15 +67,25 @@ public interface SynthBeaverListener extends ParseTreeListener {
 	 */
 	void exitMutability(SynthBeaverParser.MutabilityContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SynthBeaverParser#justIf}.
+	 * Enter a parse tree produced by {@link SynthBeaverParser#if}.
 	 * @param ctx the parse tree
 	 */
-	void enterJustIf(SynthBeaverParser.JustIfContext ctx);
+	void enterIf(SynthBeaverParser.IfContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SynthBeaverParser#justIf}.
+	 * Exit a parse tree produced by {@link SynthBeaverParser#if}.
 	 * @param ctx the parse tree
 	 */
-	void exitJustIf(SynthBeaverParser.JustIfContext ctx);
+	void exitIf(SynthBeaverParser.IfContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SynthBeaverParser#block}.
+	 * @param ctx the parse tree
+	 */
+	void enterBlock(SynthBeaverParser.BlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SynthBeaverParser#block}.
+	 * @param ctx the parse tree
+	 */
+	void exitBlock(SynthBeaverParser.BlockContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SynthBeaverParser#body}.
 	 * @param ctx the parse tree
@@ -126,6 +136,16 @@ public interface SynthBeaverListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLiteral(SynthBeaverParser.LiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SynthBeaverParser#boolLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoolLiteral(SynthBeaverParser.BoolLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SynthBeaverParser#boolLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoolLiteral(SynthBeaverParser.BoolLiteralContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SynthBeaverParser#lambda}.
 	 * @param ctx the parse tree
