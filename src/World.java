@@ -22,9 +22,9 @@ public class World {
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         SynthBeaverParser parser = new SynthBeaverParser(tokens);
         ParseTree tree = parser.start();
-        ParseTreeWalker walker = new ParseTreeWalker();
-        SynthBeaverListener listener= new Listener();
-        walker.walk(listener, tree);
+// Create a visitor
+        Visitor visitor = new Visitor();
+        visitor.visit(tree);
 
     }
 }
