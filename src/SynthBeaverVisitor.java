@@ -154,6 +154,12 @@ public interface SynthBeaverVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitType(SynthBeaverParser.TypeContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SynthBeaverParser#number}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNumber(SynthBeaverParser.NumberContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SynthBeaverParser#condition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

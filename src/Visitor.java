@@ -23,9 +23,7 @@ public class Visitor extends SynthBeaverBaseVisitor <String> {
 
     @Override public String visitInstruction(SynthBeaverParser.InstructionContext ctx){
         super.visitInstruction(ctx);
-        if (ctx.expression()==null){
-            writeToFile(";\n");
-        }
+        writeToFile(";\n");
         return "";
     }
 
@@ -95,6 +93,48 @@ public class Visitor extends SynthBeaverBaseVisitor <String> {
         visitExpression(ctx.looping);
         writeToFile(")\n");
         visitBody(ctx.body());
+        return "";
+    }
+
+//    @Override
+//    public String visitExpression(SynthBeaverParser.ExpressionContext ctx) {
+//        return super.visitExpression(ctx);
+//    }
+
+    @Override
+    public String visitFunction(SynthBeaverParser.FunctionContext ctx) {
+        visitName(ctx.name());
+        writeToFile(" ( ");
+        visitArguments(ctx.arguments());
+        writeToFile(" ) ");
+        return "";
+    }
+
+    @Override
+    public String visitArguments(SynthBeaverParser.ArgumentsContext ctx) {
+        for(int i = 0; i < ctx.expression().size(); i++){
+            if(i > 0)
+                writeToFile(", ");
+            visitExpression(ctx.expression(i));
+        }
+        return "";
+    }
+
+    @Override
+    public String visitOperator(SynthBeaverParser.OperatorContext ctx) {
+        writeToFile(" " + ctx.getText() + " ");
+        return "";
+    }
+
+    @Override
+    public String visitNumber(SynthBeaverParser.NumberContext ctx) {
+        writeToFile(" " + ctx.getText() + " ");
+        return "";
+    }
+
+    @Override
+    public String visitBoolLiteral(SynthBeaverParser.BoolLiteralContext ctx) {
+        writeToFile(" " + ctx.getText() + " ");
         return "";
     }
 

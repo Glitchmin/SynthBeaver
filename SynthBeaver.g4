@@ -15,7 +15,7 @@ while : 'while' '(' condition ')' body ;
 
 for   : 'for' '(' init=instruction? condition ';' looping=expression ')' body ;
 
-if : 'if' '(' condition ')' body ('else' elseBody=body)?;
+if : 'if' '(' condition ')' body ('else' elseBody=body)?; //todo
 
 block :  '{' instructions? '}' ;
 
@@ -27,25 +27,32 @@ operator: '=' | OP ;
 
 function : name '(' arguments ')';
 
-literal : NUMBER | lambda | boolLiteral;
+literal : number | lambda | boolLiteral;
 
 boolLiteral : 'true' | 'false';
 
+//todo
 lambda : name '->' (expression | block);
 
 arguments : expression (',' expression)*;
 
+//todo
 play : '!!!' arguments '!!!';
 
+//todo
 functionDef : 'def' name '(' argumentsDef ')' '->' type body;
 
+//todo
 argumentsDef : argumentDef (',' argumentDef)*;
 
+//todo
 argumentDef : name ':' type;
 
 name : ID;
 
 type : ID;
+
+number: NUMBER ;
 
 condition : expression;
 
