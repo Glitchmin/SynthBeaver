@@ -45,6 +45,40 @@ public class Visitor extends SynthBeaverBaseVisitor <String> {
     }
 
     @Override
+    public String visitWhile(SynthBeaverParser.WhileContext ctx) {
+        writeToFile("while ( ");
+        visitCondition(ctx.condition());
+        writeToFile(" )");
+        visitBody(ctx.body());
+        return  "";
+    }
+
+    @Override
+    public String visitBlock(SynthBeaverParser.BlockContext ctx) {
+        writeToFile("{\n");
+        if(ctx.instructions() != null)
+            visitInstructions(ctx.instructions());
+        writeToFile("}\n");
+        return "";
+    }
+
+    @Override
+    public String visitFor(SynthBeaverParser.ForContext ctx) {
+        writeToFile("for (");
+        if(ctx.init != null){
+            visitInstruction(ctx.init);
+        } else {
+            writeToFile(";");
+        }
+        visitCondition(ctx.condition());
+        writeToFile(";");
+        visitExpression(ctx.looping);
+        writeToFile(")\n");
+        visitBody(ctx.body());
+        return "";
+    }
+
+    @Override
     public String visitStart(SynthBeaverParser.StartContext ctx) {
         System.out.println("hej start");
         writeToFile("siemano");
