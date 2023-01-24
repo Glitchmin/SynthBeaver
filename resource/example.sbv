@@ -20,7 +20,9 @@ if ( a == b ) {
   b = b
 }
 
-
+def f1(var: int){
+    val baseFreq: Double  = 440;
+}
 
 val baseFreq: Double  = 440;
 val interval: Double = 69

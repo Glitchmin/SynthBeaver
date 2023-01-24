@@ -150,4 +150,34 @@ public class Visitor extends SynthBeaverBaseVisitor <String> {
         }
         return "test";
     }
+
+    @Override public String visitArgumentDef(SynthBeaverParser.ArgumentDefContext ctx) {
+        visitType(ctx.type());
+        visitName(ctx.name());
+        return "";
+    }
+
+    @Override public String visitArgumentsDef(SynthBeaverParser.ArgumentsDefContext ctx) {
+        boolean first = false;
+        for (SynthBeaverParser.ArgumentDefContext argument: ctx.argumentDef()) {
+            if (!first){
+                first = true;
+                writeToFile(", ");
+            }
+            visitArgumentDef(argument);
+        }
+        return "";
+    }
+
+        @Override
+    public String visitFunctionDef(SynthBeaverParser.FunctionDefContext ctx) {
+        writeToFile("public ");
+        visitType(ctx.type());
+        visitName(ctx.name());
+        writeToFile("( ");
+        visitArgumentsDef(ctx.argumentsDef());
+
+        return "";
+    }
+
 }
