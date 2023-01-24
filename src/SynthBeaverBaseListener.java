@@ -232,18 +232,6 @@ public class SynthBeaverBaseListener implements SynthBeaverListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterArgument(SynthBeaverParser.ArgumentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArgument(SynthBeaverParser.ArgumentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterPlay(SynthBeaverParser.PlayContext ctx) { }
 	/**
 	 * {@inheritDoc}

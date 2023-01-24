@@ -187,16 +187,6 @@ public interface SynthBeaverListener extends ParseTreeListener {
 	 */
 	void exitArguments(SynthBeaverParser.ArgumentsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SynthBeaverParser#argument}.
-	 * @param ctx the parse tree
-	 */
-	void enterArgument(SynthBeaverParser.ArgumentContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SynthBeaverParser#argument}.
-	 * @param ctx the parse tree
-	 */
-	void exitArgument(SynthBeaverParser.ArgumentContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link SynthBeaverParser#play}.
 	 * @param ctx the parse tree
 	 */
