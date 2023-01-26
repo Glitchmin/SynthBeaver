@@ -5,7 +5,9 @@ instructions : instruction+;
 
 instruction : statement | functionDef ;
 
-statement : noSemiStatement ';'?;
+statement : return? noSemiStatement ';'?;
+
+return : 'return' ;
 
 noSemiStatement : definition | control | expression | play ;
 
@@ -25,7 +27,7 @@ block :  '{' instructions? '}' ;
 
 body : block | instruction;
 
-expression : function | lhs=expression operator rhs=expression | name | literal;
+expression : function | lhs=expression operator rhs=expression | name | literal | '(' expression ')';
 
 operator: '=' | OP ;
 
@@ -44,7 +46,7 @@ play : '!!!' arguments '!!!';
 
 functionDef : 'def' name '(' argumentsDef ')' '->' type body;
 
-argumentsDef : argumentDef (',' argumentDef)*;
+argumentsDef : | argumentDef (',' argumentDef)*;
 
 argumentDef : mutability name ':' type;
 
@@ -58,8 +60,8 @@ condition : expression;
 
 
 NUMBER : [0-9]+'.'?[0-9]*;
-ID : [a-zA-Z][a-zA-Z.0-9_]*;
-OP : [-+/*^<>=][=]? ;
+ID : [a-zA-Z_][a-zA-Z.0-9_]*;
+OP : [-+/*^<>=%][=]? ;
 WS: [ \t\r\n]+ -> skip;
 Semi
    : (';' | ([\r\n])+) -> skip

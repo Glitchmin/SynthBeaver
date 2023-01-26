@@ -1,47 +1,35 @@
-for (var i: int = 0; i < 5; i += 1) {
-  poCoKOmuPostfixOperatory
-}
-
-Math.sin(Math.PI)
-
-Math.min(buba, 123);
-
-soo true
-
-while ( b == b ) {  }
-
-while ( b == b ) {  b += 1 }
-
-val freqs: Unarf = t -> { t^2; }
-
-val freqs: Unarf = t -> t^2
-
-if ( a == b ) {
-  b = b
-}
-
 def f1(var wara: int) -> void {
-    val baseFreq: Double  = 440;
+    val baseFreq: Double  = 440.0;
 }
 
-val baseFreq: Double  = 440;
-val interval: Double = 69
-var amplitude: Double = 127
+def f2(var wara: int, val ci: int, val doGara: Double) -> Double {
+    val baseFreq: Double  = 440.0;
+    return baseFreq;
+}
 
 
-//comment
-val shape: Unarf  = x -> Math.sin(x)
-val freqs: Unarf = t -> t^2
+def main() -> void
+{
+    val sampleRate: float = 44100;
+    val duration: int = 30;
 
-val baseFreqs: Unarf = x -> baseFreq
+    val surfed: Unarf = x -> Math.sin(x); //sin
+    val ceilsFun: Unarf =  time -> 440 + 1000 * (Math.ceil(time) % 3);
+    val combinedFun: Unarf = time -> (40 + (1000 + 500 * Math.sin(time * time * Math.PI * 2)
+            + 400 * Math.sin(time * 2 * Math.PI * 2)) * ((Math.ceil(time) % 3 + 1) / 2)); //combined
+    val freqFun: Unarf = x -> ceilsFun.apply(x) + combinedFun.apply(x);
 
-var freqFun: Unarf = baseFreqs + time -> 2000 + 2000 * Math.sin(time^2 * Math.PI * 2 ) //yj
-freqFun *= 6
-freqFun =  freqFun / 7 + 3
 
-!!!
- shape,
- freqFun,
- 127,
- 2137
-!!!
+    val amplitude: Unarf = t -> {
+        return  Math.sin(t)  * Math.min(1, Math.ceil(t* 4) % 4) * 127.0;
+    };
+
+
+    __singMyBeaverRestrictedName(
+        duration,
+        surfed,
+        freqFun,
+        amplitude,
+        sampleRate
+    );
+}

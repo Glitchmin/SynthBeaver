@@ -34,6 +34,12 @@ public interface SynthBeaverVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStatement(SynthBeaverParser.StatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SynthBeaverParser#return}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturn(SynthBeaverParser.ReturnContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SynthBeaverParser#noSemiStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

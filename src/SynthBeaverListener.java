@@ -47,6 +47,16 @@ public interface SynthBeaverListener extends ParseTreeListener {
 	 */
 	void exitStatement(SynthBeaverParser.StatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link SynthBeaverParser#return}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturn(SynthBeaverParser.ReturnContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SynthBeaverParser#return}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturn(SynthBeaverParser.ReturnContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SynthBeaverParser#noSemiStatement}.
 	 * @param ctx the parse tree
 	 */
